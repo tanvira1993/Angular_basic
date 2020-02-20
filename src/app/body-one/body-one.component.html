@@ -1,0 +1,143 @@
+<div  style="margin-left: 30px; margin-top: 20px; height: 92%">
+    <form class="example-form container">
+        <mat-form-field class="example-full-width">
+          <mat-label>Company (disabled)</mat-label>
+          <input matInput disabled value="Google">
+        </mat-form-field>
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>First name</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>Long Last Name That Will Be Truncated</mat-label>
+            <input matInput>
+          </mat-form-field></td>
+        </tr></table>
+      
+        <p>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Ex. 100 Main St">1600 Amphitheatre Pkwy</textarea>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Address 2</mat-label>
+            <textarea matInput ></textarea>
+            
+          </mat-form-field>
+        </p>
+      
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="Ex. San Francisco" >
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="Ex. California" >
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width">
+            <mat-label>Postal Code</mat-label>
+            <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="94043" >
+            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+          </mat-form-field></td>
+        </tr></table>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+1 &nbsp;</span>
+            <input type="tel" matInput placeholder="555-555-1234">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+          </mat-form-field>
+      </form>
+
+      <p>
+        <mat-label>Company Template Refer</mat-label>
+        <input #myvalue matInput >
+        {{myvalue.value}}
+      </p>
+
+      <p>
+        <mat-label>two way data binding</mat-label>
+        <input [(ngModel)]="name" matInput>
+        {{name}}
+      </p>
+      
+        <div class="example-button-row">
+            <button mat-raised-button (click)="templateReference(myvalue.value)">Basic</button>
+            <button mat-raised-button styleClass="primary" >Replace Data</button>
+            <button mat-button color="accent" (click)="clickEvent()">Submit</button>
+            <button mat-button color="accent" (click)="clickEventListen($event)">Event Submit</button>
+            <button mat-button color="accent" (click)="greet = 'hell oangular'">Replace Event Submit</button>
+            <button mat-button color="warn" (click)= "fireEvent()">Data Pass To Paren</button>
+            <button mat-raised-button disabled>Disabled</button>
+            <a mat-button routerLink=".">Link</a>
+          </div>
+
+          
+          <h1 class='special'>hello {{siteUrl}}</h1>
+          <!-- CLASS BINDING -->
+          <h1 [class.text-danger]='true'>hello</h1>
+          <!-- ng directive binding -->
+          <h1 [ngClass]='classesVar'>hello italic</h1>
+
+          <!-- property binding -->
+          <input type="text" value="hello">
+          <input disabled='false' type="text" value="hello">
+          <input [disabled]="isDisabled" type="text" value="hello">
+          
+          <!-- stylr binding -->
+          <h1 [style.color]="'blue'">hello yello</h1>
+          <h1 [style.color]="condition ? 'green':'orange'">hello yello</h1>
+          <h1 [style.color]="conditionColor">style binding 2 </h1>
+          <h1 [ngStyle]="styleClass">style binding 3 </h1>
+          {{greet}}
+
+          <div [ngStyle]="styleClass" *ngIf="true">
+              <h1>Normal *ngIf</h1>
+          </div>
+          <div [ngStyle]="styleClass" *ngIf="ngIfCheck">
+            <h1>from property *ngIf</h1>
+        </div>
+
+        <div *ngIf="false ; else elseblk">
+          <h1>Hello *ngIf if block</h1>
+        </div>
+
+        <ng-template #elseblk>
+          <h1>hidden *ngIf else block</h1>
+        </ng-template>
+        
+        <div *ngIf="true ; then thnblk ; else elseblok">
+        </div>
+
+        <ng-template #thnblk>
+          <h1>hello from then *ngIf then  block</h1>
+        </ng-template>
+
+        <ng-template #elseblok>
+          <h1>hidden *ngIf then  block</h1>
+        </ng-template>
+
+        <div>
+          <span [ngSwitch]="switch">
+            <p *ngSwitchCase="1">
+              switch is 1
+            </p>
+            <p *ngSwitchCase="2">
+              switch is 2
+            
+            </p>
+            <p *ngSwitchDefault>
+              switch is none 
+            
+            </p>
+            </span>
+        </div>
+        
+        <div *ngFor="let item of ngForLoop; index as i">
+            <h1>{{i}}{{item}}</h1>
+        </div>
+        <h1>{{ "hello form parent" + '  '+parenDate}}</h1>
+</div>
