@@ -5,7 +5,7 @@ import { BodyTwoComponent } from './body-two/body-two.component'
 import { HomeComponent } from './home/home.component'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/body1', pathMatch: 'full' },
+  { path: '', redirectTo: '/', pathMatch: 'full' },
   { path: 'body1', component: BodyOneComponent },
   { path: 'body2', component: BodyTwoComponent },
   { path: '**', component: HomeComponent },
