@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./body-two.component.scss']
 })
 export class BodyTwoComponent implements OnInit {
-
+  public topics = ["AngularJs","React","Angular", "Redux","Vue"]
   constructor() { }
 
   ngOnInit() {
